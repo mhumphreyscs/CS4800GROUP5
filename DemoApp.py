@@ -11,12 +11,19 @@ ScreenManager:
     Question4Screen:
     EndScreen:
     InfoScreen:
-
+            
 <MenuScreen>:
     name: "menu"
+    MDLabel:
+        text: "COVID-19 Symptom Tracker"
+        halign: "center"
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
+        font_style: "H1"
+        font_size: "60sp"
     MDRectangleFlatButton
         text: "Start"
-        pos_hint: {'center_x':0.5,'center_y':0.5}
+        pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press: root.manager.current = "Question1"
         
 <Question1Screen>:
@@ -24,6 +31,10 @@ ScreenManager:
     MDLabel:
         text: "Have you been exposed to COVID-19 in the last 14 days?"
         halign: "center"
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
+        font_style: "Body1"
+        font_size: "30sp"
     MDRectangleFlatButton
         text: "Yes"
         pos_hint: {"center_x":0.4,"center_y":0.4}
@@ -38,6 +49,10 @@ ScreenManager:
     MDLabel:
         text: "Have you had any of the following Symptoms(1): Dry Cough, Sore Throat, or Fever?"
         halign: "center"
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
+        font_style: "Body1"
+        font_size: "30sp"
     MDRectangleFlatButton
         text: "Yes"
         pos_hint: {"center_x":0.4,"center_y":0.4}
@@ -52,6 +67,10 @@ ScreenManager:
     MDLabel:
         text: "Have you had any of the following Symptoms(2): Shortness of breath, trouble breathing, loss sense of smell?"
         halign: "center"
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
+        font_style: "Body1"
+        font_size: "30sp"
     MDRectangleFlatButton
         text: "Yes"
         pos_hint: {"center_x":0.4,"center_y":0.4}
@@ -67,6 +86,10 @@ ScreenManager:
     MDLabel:
         text: "Have you tested for COVID-19 in the last 14 days?"
         halign: "center"
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
+        font_style: "Body1"
+        font_size: "30sp"
     MDRectangleFlatButton
         text: "Yes"
         pos_hint: {"center_x":0.4,"center_y":0.4}
@@ -81,20 +104,30 @@ ScreenManager:
     MDLabel:
         text: "If you answered no to most of these questions, you most likely don't have COVID-19."
         halign: "center"
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
+        font_style: "Body1"
+        font_size: "30sp"
     MDRectangleFlatButton
         text: "Proceed screen if you answered yes to one of the following questions"
-        pos_hint: {"center_x":0.5,"center_y":0.45}
+        pos_hint: {"center_x":0.5,"center_y":0.4}
         on_press: root.manager.current = "info"   
 
 <InfoScreen>
     name: "info"
     MDLabel:
+        theme_text_color: "Custom"
+        text_color: (66 / 255, 158 / 255, 157 / 255, 1)
         text: "Go to schsa.org/corona-virus/testing/ for more information about testing"
         halign: "center"
+        font_style: "Body1"
+        font_size: "25sp"
+        
     
         
             
 """
+
 
 # These classes are needed to run the application and corresponds with the screens from the code above.
 class MenuScreen(Screen):
@@ -141,7 +174,7 @@ sm.add_widget(InfoScreen(name="info"))
 class DemoApp(MDApp):
 
     def build(self):
-        self.theme_cls.primary_palette = "Cyan"
+        self.theme_cls.primary_palette = "BlueGray"
         self.theme_cls.primary_hue = "A700"
         screen = Builder.load_string(screen_helper)
         return screen
